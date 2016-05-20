@@ -1,6 +1,6 @@
 use std::sync::{Arc};
 use scoped_threadpool::{Pool};
-use piston_window::{PistonWindow, clear, UpdateEvent, BuildFromWindowSettings};
+use piston_window::{PistonWindow, clear, UpdateEvent, BuildFromWindowSettings, Window, AdvancedWindow, OpenGLWindow, GenericEvent};
 use num_cpus;
 
 use world::{World};
@@ -34,7 +34,7 @@ impl<T: Entity<T>> Game<T> {
         }
     }
 
-    pub fn run<W: BuildFromWindowSettings>(&mut self, manager: &mut IdManager, window: &mut PistonWindow<W>) {
+    pub fn run<W>(&mut self, manager: &mut IdManager, window: &mut PistonWindow<W>) where W: BuildFromWindowSettings + Window + AdvancedWindow + OpenGLWindow, W::Event: GenericEvent {
         while let Some(e) = window.next() {
             window.draw_2d(&e, |c, g| {
                 clear([0.0, 0.0, 0.0, 1.0], g);
