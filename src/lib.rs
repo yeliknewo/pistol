@@ -1,7 +1,11 @@
 extern crate piston_window;
 extern crate scoped_threadpool;
 extern crate fnv;
+extern crate sdl2_window;
 extern crate num_cpus;
+
+pub use piston_window::*;
+pub use sdl2_window::{Sdl2Window};
 
 mod game;
 mod world;
