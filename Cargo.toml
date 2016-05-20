@@ -1,6 +1,6 @@
 [package]
 name = "pistol"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Kiley Owen <yelikdev@gmail.com>"]
 
 [dependencies]

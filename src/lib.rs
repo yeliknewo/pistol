@@ -3,8 +3,6 @@ extern crate scoped_threadpool;
 extern crate fnv;
 extern crate num_cpus;
 
-pub use piston_window::*;
-
 mod game;
 mod world;
 mod entity;
