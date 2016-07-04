@@ -1,21 +1,22 @@
-extern crate piston_window;
-extern crate scoped_threadpool;
-extern crate fnv;
-extern crate sdl2_window;
-extern crate num_cpus;
+pub extern crate piston_window;
+pub extern crate scoped_threadpool;
+pub extern crate fnv;
+pub extern crate sdl2_window;
+pub extern crate num_cpus;
+pub extern crate id_alloc;
 
-pub use piston_window::*;
-pub use sdl2_window::{Sdl2Window};
+pub mod pistol {
+    pub mod game;
+    pub mod world;
+    pub mod entity;
+    pub mod sync_data;
+    pub mod components;
+    pub mod layer;
 
-mod game;
-mod world;
-mod entity;
-mod id;
-mod sync_data;
-mod components;
-
-pub use self::game::{Game};
-pub use self::entity::{Entity};
-pub use self::id::{Id, IdManager};
-pub use self::components::{Component, Transform, Renderable, Map2d, Map2dCoords, Map3d, Map3dCoords, Container, Name};
-pub use self::world::{World};
+    pub use self::game::*;
+    pub use self::world::*;
+    pub use self::entity::*;
+    pub use self::sync_data::*;
+    pub use self::components::*;
+    pub use self::layer::*;
+}

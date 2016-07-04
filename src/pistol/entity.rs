@@ -1,17 +1,18 @@
 use std::sync::{Arc};
+use std::hash::{Hash};
+use id_alloc::*;
+use pistol::components::{Transform, Renderable};
+use pistol::world::{World};
 
-use id::{Id, IdManager};
-use components::{Transform, Renderable};
-use world::{World};
-
-pub trait Entity<T: Entity<T>> : Send + Sync {
-    fn get_id(&self) -> Id;
+pub trait Entity<I: Num + Bounded + Ord + CheckedAdd + CheckedSub + One + Copy + Hash + Sync + Send, T: Entity<I, T>> : Send + Sync {
+    fn get_id(&self) -> I;
     fn get_renderable(&self) -> Option<&Box<Renderable>>;
     fn get_transform(&self) -> Option<&Box<Transform>>;
     fn get_mut_renderable(&mut self) -> Option<&mut Box<Renderable>>;
     fn get_mut_transform(&mut self) -> Option<&mut Box<Transform>>;
-    fn tick(&self, dt: f64, world: Arc<World<T>>);
-    fn tick_mut(&mut self, manager: &mut IdManager, world: &mut World<T>);
+    fn tick(&self, dt: f64, world: Arc<World<I, T>>);
+    fn tick_mut(&mut self, manager: &mut Node<I>, world: &mut World<I, T>, tick_2_layer: I);
+    fn get_tick_mut_layers(&self) -> 
     fn is_tick(&self) -> bool;
     fn is_tick_mut(&self) -> bool;
 }

@@ -6,7 +6,7 @@ pub trait Component {
 #[macro_export]
 macro_rules! impl_component {
     ($t: ty, $ti: expr, $tim: expr) => {
-        impl $crate::Component for $t {
+        impl $crate::pistol::Component for $t {
             #[inline]
             fn is_tick(&self) -> bool {
                 $ti

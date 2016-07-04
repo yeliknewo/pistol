@@ -4,9 +4,14 @@ version = "0.1.4"
 authors = ["Kiley Owen <yelikdev@gmail.com>"]
 
 [dependencies]
-piston_window = "0.47.0"
+piston_window = "0.47.2"
 pistoncore-sdl2_window = "0.30.2"
+id_alloc = {git = "https://github.com/yeliknewo/id_alloc.git", version = "0.4.3"}
+ncollide = "0.9.1"
+nalgebra = "0.8.2"
 image = "0.10.0"
 scoped_threadpool = "0.1.7"
 fnv = "1.0.2"
 num_cpus = "0.2.12"
+gfx_device_gl = "0.10.0"
+piston2d-opengl_graphics = "0.30.0"

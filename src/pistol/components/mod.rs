@@ -9,7 +9,6 @@ pub mod map3d_coords;
 pub mod container;
 pub mod name;
 
-
 pub use self::component::{Component};
 pub use self::renderable::{Renderable};
 pub use self::transform::{Transform};
